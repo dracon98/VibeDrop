@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:VibeDrop.ViewModel"
+             x:Class="VibeDrop.View.ContactPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.BindingContext>
+                <local:ContactViewModel/>
+            </StackLayout.BindingContext>
+            <ListView x:Name="ListView" BackgroundColor="Gray" ItemsSource="{Binding ContactList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding ID}" TextColor="Black" Detail="{Binding Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView> 
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
