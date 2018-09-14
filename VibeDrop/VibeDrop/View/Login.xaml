@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="VibeDrop.View.Login">
+    <StackLayout x:Name="MasterLayout">
+        <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
+            <Image x:Name="LoginIcon" Source="vibedrop.jpg" Margin="0, 80, 0, 0"/>
+            
+        </StackLayout>
+
+        <StackLayout x:Name="LoginEntries" VerticalOptions="StartAndExpand">
+            <StackLayout.Padding>
+               <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>
+                        40, 0, 40, 0
+                    </OnIdiom.Phone>
+                    <OnIdiom.Tablet>
+                        40, 0, 40, 0
+                    </OnIdiom.Tablet>
+                </OnIdiom> 
+            </StackLayout.Padding>
+
+            <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsRunning="true"/>
+            
+            <Label x:Name="lbl_username" Text="Username"/>
+            <Entry x:Name="entry_username" Placeholder="Username"/>
+            <Label x:Name="lbl_password" Text="Password"/>
+            <Entry x:Name="entry_password" Placeholder="Password"/>
+            <Button x:Name="btn_signin" Text="Sign In" Clicked="SignIn"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

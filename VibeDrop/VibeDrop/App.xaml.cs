@@ -12,7 +12,7 @@ namespace VibeDrop
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new ContactPage());
+            MainPage = new NavigationPage(new Login());
 		}
 
 		protected override void OnStart ()

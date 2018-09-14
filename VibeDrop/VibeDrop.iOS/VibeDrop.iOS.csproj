@@ -158,8 +158,11 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\VibeDrop\VibeDrop.csproj">
-      <Project>{C1FEAF24-8F11-4DE7-8511-8EA24C20DBB9}</Project>
+      <Project>{494A6032-4A81-4F84-B572-19924B009D33}</Project>
       <Name>VibeDrop</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vibedrop.jpg" />
   </ItemGroup>
 </Project>

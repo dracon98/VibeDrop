@@ -17,10 +17,7 @@ namespace VibeDrop.Data
         {
             client = new FirebaseClient("https://vibedrop-b4589.firebaseio.com/");
             //Manual Entry
-            /*
-            nContact.ID = "Go23d23ogle";
-            nContact.Name = "Android!";
-            var item = client.Child("Contacts").PostAsync<Contact>(nContact);*/
+
         }
         public async Task<List<Contact>> FetchContactAsync()
         {
