@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="VibeDrop.View.InsertContact">
+    <!--created by TAMMY LE, 15/9/2018-->
+    <StackLayout x:Name="MasterLayoutRegister">
+        <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
+            <Image x:Name="LoginIcon" Source="vibedrop.jpg" Margin="0, 80, 0, 0"/>
+        </StackLayout>
+
+        <StackLayout x:Name="RegisterTitle" HorizontalOptions="CenterAndExpand">
+                <Label x:Name="lbl_Registerlabel" Text="REGISTER" TextColor="#ccffff" FontFamily="monospace"/>
+        </StackLayout>
+        
+        <StackLayout x:Name="RegisterEntries" VerticalOptions="StartAndExpand">
+            <StackLayout.Padding>
+               <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>
+                        40, 0, 40, 0
+                    </OnIdiom.Phone>
+                    <OnIdiom.Tablet>
+                        40, 0, 40, 0
+                    </OnIdiom.Tablet>
+                </OnIdiom> 
+            </StackLayout.Padding>
+           
+
+            <ActivityIndicator x:Name="ActivitySpinner" Color="Silver" IsRunning="true"/>
+                
+                <Label x:Name="lbl_Rusername" Text="Username"/>
+                <Entry x:Name="entry_Rusername" BackgroundColor="Gray"/>
+            
+                <Label x:Name="lbl_Name" Text="Name"/>
+                <Entry x:Name="entry_Name" BackgroundColor="Gray"/>
+            
+                <Label x:Name="lbl_Email" Text="Email"/>
+                <Entry x:Name="entry_Email" BackgroundColor="Gray"/>
+            
+                <Label x:Name="lbl_Phone" Text="Phone"/>
+                <Entry x:Name="entry_Phone" BackgroundColor="Gray"/>
+
+                <Button x:Name="btn_signup" Text="Sign Up" Clicked="SignUp" FontFamily="monospace"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="lbl" Text="Already sign up?" 
+                       TextColor="#ccffff" 
+                       FontFamily="monospace"/>
+                <Button x:Name="btn_back" Text="Sign In" FontFamily="monospace"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

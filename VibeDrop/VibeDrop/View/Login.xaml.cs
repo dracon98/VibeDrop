@@ -17,10 +17,16 @@ namespace VibeDrop.View
         void Init()
         {
             BackgroundColor = Constants.BackgroundColor;
+
+            //set the color for the labels
             lbl_username.TextColor = Constants.MainTextColor;
             lbl_password.TextColor = Constants.MainTextColor;
+
             ActivitySpinner.IsVisible = false;
             LoginIcon.HeightRequest = Constants.LoginIconHeight;
+
+
+
 
             entry_username.Completed += (s, e) => entry_password.Focus();
             entry_password.Completed += (s, e) => SignIn(s, e);

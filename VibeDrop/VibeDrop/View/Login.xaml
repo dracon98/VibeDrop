@@ -3,7 +3,14 @@
     <StackLayout x:Name="MasterLayout">
         <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
             <Image x:Name="LoginIcon" Source="vibedrop.jpg" Margin="0, 80, 0, 0"/>
-            
+        </StackLayout>
+
+        <StackLayout x:Name="SloganStack" HorizontalOptions="CenterAndExpand">
+                <Label x:Name="lbl_slogan" 
+                       Text="SHARE YOUR VIBES " 
+                       TextColor="#ccffff" 
+                       FontSize="Large"
+                       FontFamily="monospace"/>
         </StackLayout>
 
         <StackLayout x:Name="LoginEntries" VerticalOptions="StartAndExpand">
@@ -17,14 +24,14 @@
                     </OnIdiom.Tablet>
                 </OnIdiom> 
             </StackLayout.Padding>
+           
 
             <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsRunning="true"/>
-            
-            <Label x:Name="lbl_username" Text="Username"/>
-            <Entry x:Name="entry_username" Placeholder="Username"/>
-            <Label x:Name="lbl_password" Text="Password"/>
-            <Entry x:Name="entry_password" Placeholder="Password"/>
-            <Button x:Name="btn_signin" Text="Sign In" Clicked="SignIn"/>
+                <Label x:Name="lbl_username" Text="Username"/>
+                <Entry x:Name="entry_username" Placeholder="Username"/>
+                <Label x:Name="lbl_password" Text="Password"/>
+                <Entry x:Name="entry_password" Placeholder="Password"/>
+                <Button x:Name="btn_signin" Text="Sign In" Clicked="SignIn"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
