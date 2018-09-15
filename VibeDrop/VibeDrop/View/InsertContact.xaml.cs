@@ -23,13 +23,8 @@ namespace VibeDrop.View
             lbl_Email.TextColor = Constants.MainTextColor;
             lbl_Phone.TextColor = Constants.MainTextColor;
 
-            //set the font size for labels
-            lbl_Rusername.FontSize = 24;
-            lbl_Name.FontSize = 24;
-            lbl_Email.FontSize = 24;
-            lbl_Phone.FontSize = 24;
-            btn_signup.FontSize = 24;
-            lbl_Registerlabel.FontSize = 40;
+            //set the font size
+            lbl_Registerlabel.FontSize = 24;
             lbl.FontSize = 26;
 
             ActivitySpinner.IsVisible = false;
@@ -44,7 +39,7 @@ namespace VibeDrop.View
 
         void SignUp(object sender, EventArgs e)
         {
-            DisplayAlert("Login", "Login Success", "OK");
+            DisplayAlert("Sign Up", "Signed up Success", "OK");
         }
 
     }

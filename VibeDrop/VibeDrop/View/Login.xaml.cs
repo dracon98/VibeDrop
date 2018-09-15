@@ -22,6 +22,10 @@ namespace VibeDrop.View
             lbl_username.TextColor = Constants.MainTextColor;
             lbl_password.TextColor = Constants.MainTextColor;
 
+            //set colors for entry fields
+            entry_username.TextColor = Constants.EntryTextColor;
+            entry_password.TextColor = Constants.EntryTextColor;
+
             ActivitySpinner.IsVisible = false;
             LoginIcon.HeightRequest = Constants.LoginIconHeight;
 

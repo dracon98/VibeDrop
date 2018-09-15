@@ -12,10 +12,11 @@ namespace VibeDrop.Model
         //Specify the colors
         public static Color BackgroundColor = Color.Black;
         public static Color MainTextColor = Color.FloralWhite;
+        public static Color EntryTextColor = Color.LightGray;
 
 
         //Set the height of Logo
-        public static int LoginIconHeight = 180;
+        public static int LoginIconHeight = 120;
 
     }
 }
