@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="VibeDrop.View.NotesTakingPage">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" 
+                    VerticalOptions="FillAndExpand"
+                    >
+        <Grid AbsoluteLayout.LayoutFlags="All" 
+              AbsoluteLayout.LayoutBounds="0,0,1,1"
+              RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal" Padding="8" Spacing="16" BackgroundColor="#F2C500">
+                <Label Text="Made at Home?"
+                        TextColor="White" 
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Start"
+                        FontSize="16">
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="16" Android="16" WinPhone="12" />
+                    </Label.FontSize>
+                </Label>
+                <Switch IsToggled="{Binding AtHome}" 
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="Center"/>
+                <Button Text="Add Coffee" 
+                        Command="{Binding AddCoffeeCommand}" 
+                        IsEnabled="{Binding IsNotBusy}" 
+                        VerticalOptions="Center"
+                        TextColor="White"
+                        BackgroundColor="#F2C500"
+                        BorderWidth="0"/>
+            </StackLayout>
+            <StackLayout  Grid.Row="1" Orientation="Horizontal" Padding="8,0,8,4" Spacing="16" 
+                         BackgroundColor="#F2C500">
+                <Label Text="Location: "
+                       VerticalOptions="End"
+                        TextColor="White" />
+                <Entry Text="{Binding Location}" HorizontalOptions="FillAndExpand">
+                    <Entry.Triggers>
+                        <DataTrigger TargetType="Entry"
+                             Binding="{Binding AtHome}"
+                             Value="true">
+                            <Setter Property="IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Entry.Triggers>
+                </Entry>
+            </StackLayout>
+            <ListView 
+                Grid.Row="2"
+                GroupDisplayBinding="{Binding Key}"
+                IsGroupingEnabled="true"
+                HasUnevenRows ="true"
+                ItemsSource="{Binding CoffeesGrouped}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                RefreshCommand="{Binding LoadCoffeesCommand}"
+                x:Name="ListViewCoffees">
+             <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="16,12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding TimeDisplay}" 
+                                   FontSize="16" 
+                                   Style="{DynamicResource ListItemTextStyle}" 
+                                   VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="1" 
+                                   HorizontalOptions="End" 
+                                   FontSize="16" 
+                                   Text="{Binding AtHomeDisplay}" 
+                                   Style="{DynamicResource ListItemTextStyle}" 
+                                   TextColor="#979797" 
+                                   VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+             </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Grid.Row="3" x:Name="OfflineStack" Padding="8" IsVisible="false" BackgroundColor="#F2C500">
+                <Label TextColor="White" Text="No Connection - Offline Mode" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+            <StackLayout IsVisible="{Binding IsBusy}"
+                         Padding="32"
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                                   BackgroundColor="#90000000">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" Color="#3CB9A8"/>
+            <Label Text="{Binding LoadingMessage}" HorizontalOptions="Center" TextColor = "White" Style="{DynamicResource ListItemTextStyle}"/>
+       </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>
