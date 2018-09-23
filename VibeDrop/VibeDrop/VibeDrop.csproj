@@ -9,14 +9,13 @@
   <ItemGroup>
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.0-beta2" />
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
     <PackageReference Include="Microsoft.WindowsAzure.Mobile.Service.ResourceBroker" Version="1.0.2.1" />
-    <PackageReference Include="Xamarin.Plugins.Clipboard" Version="2.2.1" />
-    <PackageReference Include="Xam.Plugins.Settings" Version="4.0.0.10-beta" />
-    <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore" Version="4.0.2" />
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.0.2" />
     <PackageReference Include="Plugin.Connectivity" Version="1.0.2" />
-    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.2.47-beta" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore" Version="4.0.2" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />

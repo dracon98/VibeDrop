@@ -15,7 +15,7 @@ namespace VibeDrop.Model
 
 
         //declare the Date UTC
-        public DateTime DateUTC { get; set; }
+        public DateTime DateUtc { get; set; }
 
         //declare property location - MadeAtHome
         public bool MadeAtHome { get; set; }
@@ -27,10 +27,10 @@ namespace VibeDrop.Model
         public string OS { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
-        public string DateDisplay { get { return DateUTC.ToLocalTime().ToString("date"); } }
+        public string DateDisplay { get { return DateUtc.ToLocalTime().ToString("date"); } }
 
         [Newtonsoft.Json.JsonIgnore]
-        public string TimeDisplay { get { return DateUTC.ToLocalTime().ToString("time") + " " + OS.ToString(); } }
+        public string TimeDisplay { get { return DateUtc.ToLocalTime().ToString("time") + " " + OS.ToString(); } }
 
         [Newtonsoft.Json.JsonIgnore]
         public string AtHomeDisplay { get { return MadeAtHome ? "Create At Home" : Location; } }

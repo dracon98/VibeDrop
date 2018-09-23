@@ -13,11 +13,11 @@ namespace VibeDrop.ViewModel
     public class NoteViewModel : BaseViewModel                    
     {
         AzureService azureService;
-
         public NoteViewModel()
         {
             azureService = DependencyService.Get<AzureService>();
         }
+
         public ObservableRangeCollection<Note> Notes { get; } = new ObservableRangeCollection<Note>();
         public ObservableRangeCollection<Grouping<string, Note>> NotesGrouped { get; } = new ObservableRangeCollection<Grouping<string, Note>>();
 
@@ -47,7 +47,7 @@ namespace VibeDrop.ViewModel
 
         ICommand loadNotesCommand;
         public ICommand LoadNotesCommand =>
-            loadNotesCommand ?? (loadNotesCommand = new Command(async () => await ExecuteLoadNotesCommandAsync()));
+        loadNotesCommand ?? (loadNotesCommand = new Command(async () => await ExecuteLoadNotesCommandAsync()));
 
         async Task ExecuteLoadNotesCommandAsync()
         {
@@ -83,11 +83,11 @@ namespace VibeDrop.ViewModel
 
         void SortNotes()
         {
-            var groups = from NOTE in Notes
-                orderby NOTE.DateUTC descending
-                            group NOTE by NOTE.DateDisplay
-                into NOTEGroup
-                            select new Grouping<string, Note>($"{NOTEGroup.Key} ({NOTEGroup.Count()})", NOTEGroup);
+            var groups = from note in Notes
+                orderby note.DateUtc descending
+                            group note by note.DateDisplay
+                into noteGroup
+                         select new Grouping<string, Note>($"{Group.Key} ({noteGroup.Count()})", noteGroup);
 
 
             NotesGrouped.ReplaceRange(groups);
@@ -107,10 +107,10 @@ namespace VibeDrop.ViewModel
 
                 if (string.IsNullOrWhiteSpace(Location) && !AtHome)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Needs Location", "Please enter a location before adding the coffee.", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Needs Location", "Please enter a location before adding the note.", "OK");
                     return;
                 }
-                LoadingMessage = "Adding note...";
+                LoadingMessage = "Adding Note...";
                 IsBusy = true;
 
 

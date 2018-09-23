@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="VibeDrop.View.NotesTakingPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:VibeDrop;assembly=VibeDrop"
+             x:Class="VibeDrop.View.NotesTakingPage"
+             Title="NoteTaking">
     <AbsoluteLayout HorizontalOptions="FillAndExpand" 
                     VerticalOptions="FillAndExpand"
                     >
@@ -25,8 +29,8 @@
                 <Switch IsToggled="{Binding AtHome}" 
                         HorizontalOptions="CenterAndExpand" 
                         VerticalOptions="Center"/>
-                <Button Text="Add Coffee" 
-                        Command="{Binding AddCoffeeCommand}" 
+                <Button Text="Add Note" 
+                        Command="{Binding AddNoteCommand}" 
                         IsEnabled="{Binding IsNotBusy}" 
                         VerticalOptions="Center"
                         TextColor="White"
@@ -53,11 +57,11 @@
                 GroupDisplayBinding="{Binding Key}"
                 IsGroupingEnabled="true"
                 HasUnevenRows ="true"
-                ItemsSource="{Binding CoffeesGrouped}"
+                ItemsSource="{Binding NotesGrouped}"
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                RefreshCommand="{Binding LoadCoffeesCommand}"
-                x:Name="ListViewCoffees">
+                RefreshCommand="{Binding LoadNotesCommand}"
+                x:Name="ListViewNotes">
              <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

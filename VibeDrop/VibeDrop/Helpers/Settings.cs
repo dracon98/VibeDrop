@@ -74,6 +74,5 @@ namespace VibeDrop.Helpers
                 return !string.IsNullOrWhiteSpace(UserId);
             }
         }
-        }
     }
 }

@@ -88,7 +88,7 @@ namespace VibeDrop.Services
             await Initialize();
             await SyncNote();
 
-            return await noteTaking.OrderBy(c => c.DateUTC).ToEnumerableAsync(); ;
+            return await noteTaking.OrderBy(c => c.DateUtc).ToEnumerableAsync(); ;
 
         }
 
@@ -98,7 +98,7 @@ namespace VibeDrop.Services
 
             var note = new Note
             {
-                DateUTC = DateTime.UtcNow,
+                DateUtc = DateTime.UtcNow,
                 MadeAtHome = atHome,
                 OS = Device.RuntimePlatform,
                 Location = location ?? string.Empty
