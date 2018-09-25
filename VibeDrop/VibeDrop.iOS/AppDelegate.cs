@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Microsoft.WindowsAzure.MobileServices;
 using UIKit;
+using Xamarin.Forms;
 
 namespace VibeDrop.iOS
 {
@@ -22,7 +24,12 @@ namespace VibeDrop.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
+            // Initialize Azure Mobile Apps
+            CurrentPlatform.Init();
+
+            // Initialize Xamarin Forms
+            Forms.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
