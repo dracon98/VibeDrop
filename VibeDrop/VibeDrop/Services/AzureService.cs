@@ -128,7 +128,7 @@ namespace VibeDrop.Services
             var user = await Client.LoginAsync(GetController(), provider, uriScheme);
             
 #else
-            var user = await Client.LoginAsync(provider, uriScheme);
+            var user = await Client.LoginAsync(provider, (Newtonsoft.Json.Linq.JObject)uriScheme);
 
 #endif
             if (user == null)

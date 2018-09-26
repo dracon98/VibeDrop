@@ -5,7 +5,7 @@ using VibeDrop.Data;
 using VibeDrop.Model;
 using Xamarin.Forms;
 
-namespace VibeDrop.ViewModel
+namespace VibeDrop.View
 {
     public partial class TodoList : ContentPage
     {

@@ -10,9 +10,8 @@ namespace VibeDrop
 	{
 		public App ()
 		{
-			InitializeComponent();
 
-            MainPage = new NavigationPage(new InsertContact());
+            MainPage = new TodoList();
 		}
 
 		protected override void OnStart ()
