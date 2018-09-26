@@ -5,28 +5,22 @@ using Microsoft.WindowsAzure.MobileServices;
 namespace VibeDrop.Model
 {
     public class TodoItem
-	{
+    {
 
-        [JsonProperty(PropertyName = "id")]
+        [JsonProperty(PropertyName = "d")]
         public string Id
         {
-			get; set;
+            get; set;
         }
 
-        [JsonProperty(PropertyName = "text")]
-        public string Name
-        {
-			get;set;
-        }
+        [Newtonsoft.Json.JsonProperty("userId")]
+        public string UserId { get; set; }
+        public DateTime DateUtc { get; set; }
+        public string OS { get; set; }
+        public bool Complete { get; set; }
+        public bool Done { get; set; }
+        public string Name { get; set; }
+        public string Notes { get; set; }
 
-        [JsonProperty(PropertyName = "complete")]
-        public bool Done
-        {
-			get;set;
-        }
-
-        [Version]
-        public string Version { get; set; }
     }
-
 }

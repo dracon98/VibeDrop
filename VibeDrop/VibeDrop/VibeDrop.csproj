@@ -24,8 +24,12 @@
     <Compile Remove="Data\DBFireBase.cs" />
     <Compile Remove="ViewModel\ContactViewModel.cs" />
     <Compile Remove="View\ContactPage.xaml.cs" />
+    <Compile Remove="Model\Message.cs" />
+    <Compile Remove="View\NotesTakingPage.xaml.cs" />
+    <Compile Remove="Model\Token.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="View\ContactPage.xaml" />
+    <EmbeddedResource Remove="View\NotesTakingPage.xaml" />
   </ItemGroup>
 </Project>
