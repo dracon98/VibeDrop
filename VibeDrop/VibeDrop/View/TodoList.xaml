@@ -5,8 +5,10 @@
              Title="TODO LIST">
     <Grid RowSpacing="0">
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="*" />
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="auto" />
     </Grid.RowDefinitions>
     <ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
@@ -14,22 +16,24 @@
                        IsVisible="False"
                        IsEnabled="True"
                        x:Name="syncIndicator"/>
-    <StackLayout Grid.Row="0" BackgroundColor="#5ABAFF" Padding="10,30,10,5">
-      <Label TextColor="#555555" Text="Azure App Service" />
-      <Grid>
+    <StackLayout Grid.Row="0" BackgroundColor="#000000" Padding="10,30,10,5">
+      <Label TextColor="#ffffff" Text="VIBEDROP" FontFamily="casual" FontSize="40"/>
+      <Grid Padding="16,12">
         <Grid.ColumnDefinitions>
           <ColumnDefinition/>
           <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Entry x:Name="newItemName"
-                  Placeholder="Item name" />
-        <StackLayout x:Name="buttonsPanel" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                  Placeholder="Enter the Name:" />
+        <StackLayout x:Name="buttonsPanel" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
           <Button Text="+"
                   MinimumHeightRequest="30"
+                 TextColor="#ffffff"
                   Clicked="OnAdd" />
         </StackLayout>
       </Grid>
     </StackLayout>
+        
     <ListView x:Name="todoList"
                 ItemSelected="OnSelected"
                 IsPullToRefreshEnabled="true" Refreshing="OnRefresh"
@@ -38,16 +42,27 @@
         <DataTemplate>
           <ViewCell>
             <ViewCell.ContextActions>
-              <MenuItem Clicked="OnComplete" Text="Complete" CommandParameter="{Binding .}"/>
+              <MenuItem Clicked="OnComplete" Text="Delete"  CommandParameter="{Binding .}"/>
             </ViewCell.ContextActions>
+               
             <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="15,5,0,0">
               <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
                 <Label Text="{Binding Name}"  />
               </StackLayout>
+             
             </StackLayout>
           </ViewCell>
+                      
         </DataTemplate>
+           
       </ListView.ItemTemplate>
+            
     </ListView>
+        <StackLayout Grid.Row="2" x:Name="countTxt"  Padding="5,5,5,5" IsVisible="false" BackgroundColor="#000000">
+                <Label TextColor="White" Text="{Binding count}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </StackLayout>
+         <StackLayout Grid.Row="3" x:Name="offlineStack"  Padding="5,5,5,5" IsVisible="false" BackgroundColor="#F2C500">
+                <Label TextColor="White" Text="No Connection - Offline Mode" HorizontalOptions="Center" VerticalOptions="Center"/>
+         movi  </StackLayout>
   </Grid>
 </ContentPage>

@@ -8,13 +8,13 @@ namespace VibeDrop.Helpers
     public static class Settings
     {
         //This class will get and set other properties
-            private static ISettings AppSettings
+        private static ISettings AppSettings
+        {
+            get
             {
-                get
-                {
-                    return CrossSettings.Current;
-                }
+                return CrossSettings.Current;
             }
+        }
 
         #region Setting Constants
 

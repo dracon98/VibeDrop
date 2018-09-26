@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using VibeDrop.Data;
+using Plugin.Connectivity;
 using VibeDrop.Model;
 using Xamarin.Forms;
-
 namespace VibeDrop.View
 {
     public partial class TodoList : ContentPage
@@ -14,7 +14,6 @@ namespace VibeDrop.View
         public TodoList()
         {
             InitializeComponent();
-
             manager = TodoItemManager.DefaultManager;
             if (Device.RuntimePlatform == Device.UWP)
             {
@@ -42,6 +41,15 @@ namespace VibeDrop.View
         {
             base.OnAppearing();
 
+            if (CrossConnectivity.Current != null && CrossConnectivity.Current.IsConnected == true)
+            {
+
+                offlineStack.IsVisible = false;
+            }
+            else
+            {
+                offlineStack.IsVisible = true;
+            }
             // Set syncItems to true in order to synchronize the data on startup when running in offline mode
             await RefreshItems(true, syncItems: true);
         }
@@ -67,8 +75,13 @@ namespace VibeDrop.View
 
             newItemName.Text = string.Empty;
             newItemName.Unfocus();
-        }
+            List<TodoItem> list = new List<TodoItem>();
+            foreach (TodoItem i in todoList.ItemsSource)
+            {
+                list.Add(i);
+            }
 
+        }
         // Event handlers
         public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -158,28 +171,27 @@ namespace VibeDrop.View
                 if (showIndicator)
                 {
                     indicatorDelay = Task.Delay(2000);
-                    SetIndicatorActiHvity(true);
+                    SetIndicatorActivity(true);
                 }
                 else
                 {
                     indicatorDelay = Task.FromResult(0);
                 }
-
-            }
-                private void SetIndicatorActiHvity(bool isActive)
-                {
-                    this.indicator.IsVisible = isActive;
-                    this.indicator.IsRunning = isActive;
-                }
-
-                public void Dispose()
-                {
-                    if (showIndicator)
-                    {
-                        indicatorDelay.ContinueWith(t => SetIndicatorActiHvity(false), TaskScheduler.FromCurrentSynchronizationContext());
-                    }
-                }
             }
 
+            private void SetIndicatorActivity(bool isActive)
+            {
+                this.indicator.IsVisible = isActive;
+                this.indicator.IsRunning = isActive;
+            }
+
+            public void Dispose()
+            {
+                if (showIndicator)
+                {
+                    indicatorDelay.ContinueWith(t => SetIndicatorActivity(false), TaskScheduler.FromCurrentSynchronizationContext());
+                }
+            }
+        }
     }
 }

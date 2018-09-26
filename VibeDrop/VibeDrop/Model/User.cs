@@ -8,9 +8,9 @@ namespace VibeDrop.Model
         public String username { get; set; }
         public String password { get; set; }
         //empty constructor
-        public User(){}
+        public User() { }
         //constructor
-        public User(string Username, string Password )
+        public User(string Username, string Password)
         {
             this.username = Username;
             this.password = Password;
